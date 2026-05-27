@@ -126,8 +126,8 @@
     #sidebar {
       position: absolute;
       top: 8px;
-      left: 8px;
       right: 8px;
+      left: auto;
       width: auto;
       max-height: none;
       border-left: none;
@@ -137,7 +137,7 @@
       backdrop-filter: none;
       overflow: visible;
       z-index: 1200;
-      align-items: flex-start;
+      align-items: flex-end;
       pointer-events: none;
     }
     .panel-header,
@@ -151,18 +151,21 @@
     }
     .panel-header {
       display: inline-block;
-      max-width: calc(100vw - 16px);
+      width: min(58vw, 240px);
       padding: 8px 10px;
       border-radius: 10px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.18);
       font-size: 13px;
       line-height: 1.35;
+      text-align: right;
     }
     .panel-header small { font-size: 9px; margin-top: 2px; }
     .mobile-tools {
       display: flex;
       flex-wrap: wrap;
+      justify-content: flex-end;
       gap: 6px;
+      width: min(58vw, 240px);
       padding: 6px 0 0 0;
       background: transparent;
       border-bottom: none;
@@ -182,7 +185,7 @@
     #list,
     .credit {
       display: none;
-      width: 100%;
+      width: min(84vw, 320px);
       background: rgba(255,255,255,0.98);
       border-radius: 12px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.18);
@@ -218,17 +221,25 @@
       border-radius: 999px;
       background: rgba(236,240,241,0.94);
       box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      text-align: right;
     }
     .info-box {
-      min-width: 180px;
-      max-width: 75vw;
-      font-size: 12px;
-      line-height: 1.5;
+      display: none;
     }
     .legend {
-      font-size: 10px;
-      line-height: 1.4;
-      padding: 6px 8px;
+      font-size: 9px;
+      line-height: 1.2;
+      padding: 4px 6px;
+      max-width: 120px;
+    }
+    .legend i {
+      width: 12px;
+      height: 9px;
+      margin-right: 4px;
+    }
+    .leaflet-bottom.leaflet-right .legend {
+      margin-right: 6px;
+      margin-bottom: 6px;
     }
   }
 </style>
@@ -284,6 +295,7 @@ const COLOR_SCALE = [
   "#ffff8c", "#f9d057", "#f29e2e"
 ];
 const COLOR_HIGH = "#d7191c";
+const COLOR_MAX_RATIO = 20;
 
 let geoLayer = null;
 let geoData = null;
@@ -307,19 +319,15 @@ legend.onAdd = function() {
 legend.addTo(map);
 
 function makeLegendHtml() {
-  let html = '<b>受講率 (%)</b><br>';
-  if (maxVal <= minVal) {
-    html += '<small style="color:#999;">データなし</small><br>';
-  } else {
-    const step = (maxVal - minVal) / 7;
-    for (let i=0; i<7; i++) {
-      const lo = (minVal + step * i).toFixed(2);
-      const hi = (minVal + step * (i+1)).toFixed(2);
-      html += `<i style="background:${COLOR_SCALE[i]}"></i> ${lo}–${hi}%<br>`;
-    }
-    html += `<i style="background:${COLOR_HIGH}"></i> 最高値 (${maxVal.toFixed(2)}%)<br>`;
+  let html = '<b>受講率</b><br>';
+  const step = COLOR_MAX_RATIO / 7;
+  for (let i = 0; i < 7; i++) {
+    const lo = (step * i).toFixed(1);
+    const hi = (step * (i + 1)).toFixed(1);
+    html += `<i style="background:${COLOR_SCALE[i]}"></i> ${lo}–${hi}%<br>`;
   }
-  html += '<i style="background:#e0e0e0"></i> 未入力 / 人口0';
+  html += `<i style="background:${COLOR_HIGH}"></i> ${COLOR_MAX_RATIO.toFixed(0)}%以上<br>`;
+  html += '<i style="background:#e0e0e0"></i> 未入力';
   return html;
 }
 function updateLegend() {
@@ -327,36 +335,7 @@ function updateLegend() {
   if (el) el.innerHTML = makeLegendHtml();
 }
 
-const info = L.control({ position: 'topright' });
-info.onAdd = function() {
-  this._div = L.DomUtil.create('div', 'info-box');
-  this.update();
-  return this._div;
-};
-info.update = function(props) {
-  let html = '<h4>地区情報</h4>';
-  if (props) {
-    const name = props.__name;
-    const d = dataMap[name] || {};
-    const pop = Number(d.population ?? props.population ?? 0);
-    const students = (d.students != null) ? Number(d.students) : null;
-    const ratio = d.ratio_percent;
-    html += `<b>${escapeHtml(name)}</b><br>`;
-    html += `自治体: ${escapeHtml(props.city_name || '')}<br>`;
-    if (props.postal_code) html += `郵便番号: ${escapeHtml(props.postal_code)}<br>`;
-    html += `人口: ${pop.toLocaleString()} 人<br>`;
-    html += `受講者数: ${students != null ? students.toLocaleString() + ' 人' : '未入力'}<br>`;
-    if (ratio != null) {
-      html += `<span class="ratio">受講率: ${Number(ratio).toFixed(2)} %</span>`;
-    } else {
-      html += '<span style="color:#999;">受講率: -</span>';
-    }
-  } else {
-    html += '地図上の地区にマウスを乗せてください';
-  }
-  this._div.innerHTML = html;
-};
-info.addTo(map);
+const info = { update() {} };
 
 function getRatio(feature) {
   const name = feature.properties.__name;
@@ -366,11 +345,9 @@ function getRatio(feature) {
 }
 function getColor(ratio) {
   if (ratio == null) return "#e0e0e0";
-  if (maxVal === minVal) return COLOR_SCALE[3];
-  const r = (ratio - minVal) / (maxVal - minVal);
-  if (r >= 1.0) return COLOR_HIGH;
-  if (r < 0) return COLOR_SCALE[0];
-  const idx = Math.min(6, Math.floor(r * 7));
+  if (ratio >= COLOR_MAX_RATIO) return COLOR_HIGH;
+  if (ratio <= 0) return COLOR_SCALE[0];
+  const idx = Math.min(6, Math.floor((ratio / COLOR_MAX_RATIO) * 7));
   return COLOR_SCALE[idx];
 }
 function styleFeature(feature) {
@@ -426,12 +403,8 @@ function drawGeoJSON(data) {
 }
 
 function recomputeRange() {
-  if (!geoData) { minVal = 0; maxVal = 100; return; }
-  const ratios = geoData.features.map(getRatio).filter(r => r != null);
-  if (ratios.length === 0) { minVal = 0; maxVal = 100; return; }
-  minVal = Math.min(...ratios);
-  maxVal = Math.max(...ratios);
-  if (minVal === maxVal) maxVal = minVal + 0.01;
+  minVal = 0;
+  maxVal = COLOR_MAX_RATIO;
 }
 
 function renderList() {
