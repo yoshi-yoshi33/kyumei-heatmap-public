@@ -54,20 +54,33 @@
   .list-item .name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .list-item .ratio { font-weight: bold; color: #c0392b; margin-left: 8px; }
   .legend {
-    background: #fff;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: rgba(255,255,255,0.96);
     padding: 8px 10px;
-    line-height: 18px;
-    border-radius: 4px;
+    line-height: 1.4;
+    border-radius: 8px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.2);
     font-size: 12px;
+    color: #2c3e50;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
-  .legend i {
+  .legend .legend-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 2px;
+    white-space: nowrap;
+  }
+  .legend .legend-swatch {
     display: inline-block;
+    flex: 0 0 auto;
     width: 18px;
     height: 14px;
-    margin-right: 6px;
-    vertical-align: middle;
-    opacity: 0.85;
+    border-radius: 2px;
+    opacity: 0.9;
   }
   .info-box {
     background: #fff;
@@ -230,12 +243,19 @@
       font-size: 9px;
       line-height: 1.2;
       padding: 4px 6px;
-      max-width: 120px;
+      max-width: 128px;
     }
-    .legend i {
+    .legend .legend-row {
+      gap: 4px;
+      margin-top: 1px;
+    }
+    .legend .legend-swatch {
       width: 12px;
       height: 9px;
-      margin-right: 4px;
+    }
+    .leaflet-control-container .leaflet-bottom.leaflet-right {
+      right: max(4px, env(safe-area-inset-right));
+      bottom: max(4px, env(safe-area-inset-bottom));
     }
     .leaflet-bottom.leaflet-right .legend {
       margin-right: 6px;
@@ -319,15 +339,15 @@ legend.onAdd = function() {
 legend.addTo(map);
 
 function makeLegendHtml() {
-  let html = '<b>受講率</b><br>';
+  let html = '<b>受講率</b>';
   const step = COLOR_MAX_RATIO / 7;
   for (let i = 0; i < 7; i++) {
     const lo = (step * i).toFixed(1);
     const hi = (step * (i + 1)).toFixed(1);
-    html += `<i style="background:${COLOR_SCALE[i]}"></i> ${lo}–${hi}%<br>`;
+    html += `<div class="legend-row"><span class="legend-swatch" style="background:${COLOR_SCALE[i]}"></span><span>${lo}–${hi}%</span></div>`;
   }
-  html += `<i style="background:${COLOR_HIGH}"></i> ${COLOR_MAX_RATIO.toFixed(0)}%以上<br>`;
-  html += '<i style="background:#e0e0e0"></i> 未入力';
+  html += `<div class="legend-row"><span class="legend-swatch" style="background:${COLOR_HIGH}"></span><span>${COLOR_MAX_RATIO.toFixed(0)}%以上</span></div>`;
+  html += '<div class="legend-row"><span class="legend-swatch" style="background:#e0e0e0"></span><span>未入力</span></div>';
   return html;
 }
 function updateLegend() {
