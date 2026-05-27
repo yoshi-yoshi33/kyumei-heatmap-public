@@ -1,412 +1,91 @@
 {
   "title": "普通救命講習受講者ヒートマップ",
-  "updated_at": "2026-05-27T04:16:48.324362",
-  "updated_display": "2026-05-27 04:16",
+  "updated_at": "2026-05-27T08:59:11.830Z",
+  "updated_display": "2026-05-27 17:59",
   "metric": "受講者数 ÷ 人口 × 100 (%)",
-  "note": "これはデモ用のサンプルデータです (random.seed(42)で生成)。実運用ではadmin.htmlまたはkintone連携バッチで生成されたファイルに差し替えてください。",
   "summary": {
     "total_population": 43538,
-    "total_students": 3128,
-    "total_ratio_percent": 7.1845,
+    "total_students": 123,
+    "total_ratio_percent": 0.2825,
     "by_city": {
       "真庭市": {
         "population": 42725,
-        "students": 3087,
+        "students": 123,
         "districts": 142,
-        "ratio_percent": 7.2253
+        "ratio_percent": 0.2879
       },
       "新庄村": {
         "population": 813,
-        "students": 41,
+        "students": 0,
         "districts": 24,
-        "ratio_percent": 5.0431
+        "ratio_percent": 0
       }
     }
   },
   "districts": [
     {
-      "name": "赤野",
-      "postal_code": "719-3101",
-      "city_name": "真庭市",
-      "population": 226,
-      "students": 21,
-      "ratio_percent": 9.292
-    },
-    {
       "name": "阿口",
       "postal_code": "716-1431",
       "city_name": "真庭市",
       "population": 168,
-      "students": 0,
-      "ratio_percent": 0.0
-    },
-    {
-      "name": "荒田",
-      "postal_code": "717-0026",
-      "city_name": "真庭市",
-      "population": 127,
-      "students": 5,
-      "ratio_percent": 3.937
+      "students": 1,
+      "ratio_percent": 0.5952
     },
     {
       "name": "粟谷",
       "postal_code": "717-0421",
       "city_name": "真庭市",
       "population": 133,
-      "students": 4,
-      "ratio_percent": 3.0075
+      "students": 2,
+      "ratio_percent": 1.5038
     },
     {
       "name": "一色",
       "postal_code": "719-3151",
       "city_name": "真庭市",
       "population": 234,
-      "students": 25,
-      "ratio_percent": 10.6838
-    },
-    {
-      "name": "禾津",
-      "postal_code": "717-0413",
-      "city_name": "真庭市",
-      "population": 235,
-      "students": 23,
-      "ratio_percent": 9.7872
-    },
-    {
-      "name": "岩井畝",
-      "postal_code": "717-0745",
-      "city_name": "真庭市",
-      "population": 5,
-      "students": 0,
-      "ratio_percent": 0.0
-    },
-    {
-      "name": "岩井谷",
-      "postal_code": "717-0744",
-      "city_name": "真庭市",
-      "population": 104,
-      "students": 1,
-      "ratio_percent": 0.9615
-    },
-    {
-      "name": "上山",
-      "postal_code": "719-3131",
-      "city_name": "真庭市",
-      "population": 48,
       "students": 3,
-      "ratio_percent": 6.25
-    },
-    {
-      "name": "後谷",
-      "postal_code": "717-0742",
-      "city_name": "真庭市",
-      "population": 84,
-      "students": 0,
-      "ratio_percent": 0.0
-    },
-    {
-      "name": "後谷畝",
-      "postal_code": "717-0025",
-      "city_name": "真庭市",
-      "population": 22,
-      "students": 0,
-      "ratio_percent": 0.0
-    },
-    {
-      "name": "江川",
-      "postal_code": "717-0023",
-      "city_name": "真庭市",
-      "population": 537,
-      "students": 40,
-      "ratio_percent": 7.4488
-    },
-    {
-      "name": "大庭",
-      "postal_code": "719-3102",
-      "city_name": "真庭市",
-      "population": 314,
-      "students": 1,
-      "ratio_percent": 0.3185
-    },
-    {
-      "name": "岡",
-      "postal_code": "717-0015",
-      "city_name": "真庭市",
-      "population": 52,
-      "students": 1,
-      "ratio_percent": 1.9231
-    },
-    {
-      "name": "落合垂水",
-      "postal_code": "719-3144",
-      "city_name": "真庭市",
-      "population": 1269,
-      "students": 123,
-      "ratio_percent": 9.6927
-    },
-    {
-      "name": "開田",
-      "postal_code": "719-3111",
-      "city_name": "真庭市",
-      "population": 487,
-      "students": 39,
-      "ratio_percent": 8.0082
+      "ratio_percent": 1.2821
     },
     {
       "name": "影",
       "postal_code": "719-3112",
       "city_name": "真庭市",
       "population": 42,
-      "students": 1,
-      "ratio_percent": 2.381
-    },
-    {
-      "name": "樫西",
-      "postal_code": "719-3211",
-      "city_name": "真庭市",
-      "population": 307,
-      "students": 27,
-      "ratio_percent": 8.7948
-    },
-    {
-      "name": "樫東",
-      "postal_code": "719-3223",
-      "city_name": "真庭市",
-      "population": 101,
-      "students": 12,
-      "ratio_percent": 11.8812
-    },
-    {
-      "name": "鹿田",
-      "postal_code": "719-3152",
-      "city_name": "真庭市",
-      "population": 543,
-      "students": 0,
-      "ratio_percent": 0.0
-    },
-    {
-      "name": "勝山",
-      "postal_code": "717-0013",
-      "city_name": "真庭市",
-      "population": 1603,
-      "students": 193,
-      "ratio_percent": 12.0399
-    },
-    {
-      "name": "鉄山",
-      "postal_code": "717-0101",
-      "city_name": "真庭市",
-      "population": 145,
-      "students": 15,
-      "ratio_percent": 10.3448
-    },
-    {
-      "name": "上",
-      "postal_code": "717-0746",
-      "city_name": "真庭市",
-      "population": 184,
-      "students": 9,
-      "ratio_percent": 4.8913
-    },
-    {
-      "name": "上呰部",
-      "postal_code": "716-1432",
-      "city_name": "真庭市",
-      "population": 206,
-      "students": 4,
-      "ratio_percent": 1.9417
-    },
-    {
-      "name": "上市瀬",
-      "postal_code": "719-3141",
-      "city_name": "真庭市",
-      "population": 696,
-      "students": 99,
-      "ratio_percent": 14.2241
-    },
-    {
-      "name": "上河内",
-      "postal_code": "719-3121",
-      "city_name": "真庭市",
-      "population": 535,
-      "students": 27,
-      "ratio_percent": 5.0467
-    },
-    {
-      "name": "上中津井",
-      "postal_code": "716-1422",
-      "city_name": "真庭市",
-      "population": 520,
-      "students": 7,
-      "ratio_percent": 1.3462
-    },
-    {
-      "name": "上水田",
-      "postal_code": "716-1411",
-      "city_name": "真庭市",
-      "population": 1359,
-      "students": 19,
-      "ratio_percent": 1.3981
-    },
-    {
-      "name": "神庭",
-      "postal_code": "717-0004",
-      "city_name": "真庭市",
-      "population": 94,
-      "students": 11,
-      "ratio_percent": 11.7021
-    },
-    {
-      "name": "木山",
-      "postal_code": "719-3142",
-      "city_name": "真庭市",
-      "population": 47,
-      "students": 4,
-      "ratio_percent": 8.5106
-    },
-    {
-      "name": "釘貫小川",
-      "postal_code": "717-0414",
-      "city_name": "真庭市",
-      "population": 70,
-      "students": 8,
-      "ratio_percent": 11.4286
-    },
-    {
-      "name": "草加部",
-      "postal_code": "719-3205",
-      "city_name": "真庭市",
-      "population": 745,
-      "students": 81,
-      "ratio_percent": 10.8725
-    },
-    {
-      "name": "久世",
-      "postal_code": "719-3201",
-      "city_name": "真庭市",
-      "population": 3354,
-      "students": 269,
-      "ratio_percent": 8.0203
-    },
-    {
-      "name": "組",
-      "postal_code": "717-0006",
-      "city_name": "真庭市",
-      "population": 390,
-      "students": 56,
-      "ratio_percent": 14.359
-    },
-    {
-      "name": "栗原",
-      "postal_code": "719-3153",
-      "city_name": "真庭市",
-      "population": 1052,
-      "students": 59,
-      "ratio_percent": 5.6084
-    },
-    {
-      "name": "黒杭",
-      "postal_code": "717-0423",
-      "city_name": "真庭市",
-      "population": 24,
-      "students": 1,
-      "ratio_percent": 4.1667
-    },
-    {
-      "name": "黒田",
-      "postal_code": "717-0102",
-      "city_name": "真庭市",
-      "population": 117,
-      "students": 14,
-      "ratio_percent": 11.9658
-    },
-    {
-      "name": "神",
-      "postal_code": "719-3206",
-      "city_name": "真庭市",
-      "population": 0,
-      "students": 0,
-      "ratio_percent": null
-    },
-    {
-      "name": "神代",
-      "postal_code": "717-0027",
-      "city_name": "真庭市",
-      "population": 195,
-      "students": 18,
-      "ratio_percent": 9.2308
-    },
-    {
-      "name": "古見",
-      "postal_code": "719-3103",
-      "city_name": "真庭市",
-      "population": 597,
-      "students": 77,
-      "ratio_percent": 12.8978
-    },
-    {
-      "name": "古呂々尾中",
-      "postal_code": "717-0736",
-      "city_name": "真庭市",
-      "population": 37,
       "students": 3,
-      "ratio_percent": 8.1081
+      "ratio_percent": 7.1429
     },
     {
-      "name": "五反",
-      "postal_code": "719-3228",
+      "name": "延風",
+      "postal_code": "717-0104",
       "city_name": "真庭市",
-      "population": 112,
-      "students": 11,
-      "ratio_percent": 9.8214
-    },
-    {
-      "name": "五名",
-      "postal_code": "716-1401",
-      "city_name": "真庭市",
-      "population": 256,
-      "students": 1,
-      "ratio_percent": 0.3906
-    },
-    {
-      "name": "佐引",
-      "postal_code": "719-3154",
-      "city_name": "真庭市",
-      "population": 79,
+      "population": 60,
       "students": 2,
-      "ratio_percent": 2.5316
+      "ratio_percent": 3.3333
     },
     {
-      "name": "三田",
-      "postal_code": "717-0022",
+      "name": "横部",
+      "postal_code": "717-0005",
       "city_name": "真庭市",
-      "population": 245,
-      "students": 10,
-      "ratio_percent": 4.0816
+      "population": 115,
+      "students": 13,
+      "ratio_percent": 11.3043
     },
     {
-      "name": "柴原",
-      "postal_code": "717-0014",
+      "name": "岡",
+      "postal_code": "717-0015",
       "city_name": "真庭市",
-      "population": 71,
-      "students": 0,
-      "ratio_percent": 0.0
+      "population": 52,
+      "students": 43,
+      "ratio_percent": 82.6923
     },
     {
-      "name": "下呰部",
-      "postal_code": "716-1433",
+      "name": "下河内",
+      "postal_code": "719-3122",
       "city_name": "真庭市",
-      "population": 721,
-      "students": 25,
-      "ratio_percent": 3.4674
-    },
-    {
-      "name": "下市瀬",
-      "postal_code": "719-3143",
-      "city_name": "真庭市",
-      "population": 485,
-      "students": 7,
-      "ratio_percent": 1.4433
+      "population": 687,
+      "students": 4,
+      "ratio_percent": 0.5822
     },
     {
       "name": "下岩",
@@ -417,644 +96,132 @@
       "ratio_percent": 2.381
     },
     {
-      "name": "下方",
-      "postal_code": "719-3155",
+      "name": "下見",
+      "postal_code": "719-3123",
       "city_name": "真庭市",
-      "population": 1217,
-      "students": 116,
-      "ratio_percent": 9.5316
+      "population": 35,
+      "students": 2,
+      "ratio_percent": 5.7143
     },
     {
-      "name": "下河内",
-      "postal_code": "719-3122",
+      "name": "下市瀬",
+      "postal_code": "719-3143",
       "city_name": "真庭市",
-      "population": 687,
-      "students": 37,
-      "ratio_percent": 5.3857
+      "population": 485,
+      "students": 2,
+      "ratio_percent": 0.4124
     },
     {
       "name": "下中津井",
       "postal_code": "716-1421",
       "city_name": "真庭市",
       "population": 510,
-      "students": 28,
-      "ratio_percent": 5.4902
-    },
-    {
-      "name": "下見",
-      "postal_code": "719-3123",
-      "city_name": "真庭市",
-      "population": 35,
       "students": 1,
-      "ratio_percent": 2.8571
+      "ratio_percent": 0.1961
     },
     {
       "name": "下湯原",
       "postal_code": "717-0403",
       "city_name": "真庭市",
       "population": 212,
-      "students": 8,
-      "ratio_percent": 3.7736
+      "students": 2,
+      "ratio_percent": 0.9434
     },
     {
-      "name": "菅谷",
-      "postal_code": "717-0002",
+      "name": "下方",
+      "postal_code": "719-3155",
       "city_name": "真庭市",
-      "population": 4,
-      "students": 0,
-      "ratio_percent": 0.0
+      "population": 1217,
+      "students": 1,
+      "ratio_percent": 0.0822
     },
     {
-      "name": "杉山",
-      "postal_code": "719-3113",
+      "name": "下呰部",
+      "postal_code": "716-1433",
       "city_name": "真庭市",
-      "population": 64,
-      "students": 6,
-      "ratio_percent": 9.375
+      "population": 721,
+      "students": 3,
+      "ratio_percent": 0.4161
     },
     {
-      "name": "清谷",
-      "postal_code": "717-0737",
+      "name": "禾津",
+      "postal_code": "717-0413",
       "city_name": "真庭市",
-      "population": 57,
-      "students": 5,
-      "ratio_percent": 8.7719
+      "population": 235,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "開田",
+      "postal_code": "719-3111",
+      "city_name": "真庭市",
+      "population": 487,
+      "students": 21,
+      "ratio_percent": 4.3121
+    },
+    {
+      "name": "樫西",
+      "postal_code": "719-3211",
+      "city_name": "真庭市",
+      "population": 307,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "樫東",
+      "postal_code": "719-3223",
+      "city_name": "真庭市",
+      "population": 101,
+      "students": 2,
+      "ratio_percent": 1.9802
     },
     {
       "name": "関",
       "postal_code": "719-3156",
       "city_name": "真庭市",
       "population": 449,
-      "students": 11,
-      "ratio_percent": 2.4499
-    },
-    {
-      "name": "惣",
-      "postal_code": "719-3204",
-      "city_name": "真庭市",
-      "population": 469,
-      "students": 51,
-      "ratio_percent": 10.8742
-    },
-    {
-      "name": "高田山上",
-      "postal_code": "717-0732",
-      "city_name": "真庭市",
-      "population": 59,
       "students": 1,
-      "ratio_percent": 1.6949
+      "ratio_percent": 0.2227
     },
     {
-      "name": "高屋",
-      "postal_code": "719-3114",
-      "city_name": "真庭市",
-      "population": 46,
-      "students": 2,
-      "ratio_percent": 4.3478
-    },
-    {
-      "name": "田口",
-      "postal_code": "717-0103",
-      "city_name": "真庭市",
-      "population": 112,
-      "students": 16,
-      "ratio_percent": 14.2857
-    },
-    {
-      "name": "竹原",
-      "postal_code": "717-0003",
+      "name": "岩井畝",
+      "postal_code": "717-0745",
       "city_name": "真庭市",
       "population": 5,
-      "students": 0,
-      "ratio_percent": 0.0
-    },
-    {
-      "name": "多田",
-      "postal_code": "719-3213",
-      "city_name": "真庭市",
-      "population": 796,
-      "students": 66,
-      "ratio_percent": 8.2915
-    },
-    {
-      "name": "種",
-      "postal_code": "717-0424",
-      "city_name": "真庭市",
-      "population": 181,
-      "students": 18,
-      "ratio_percent": 9.9448
-    },
-    {
-      "name": "田原",
-      "postal_code": "719-3104",
-      "city_name": "真庭市",
-      "population": 273,
-      "students": 34,
-      "ratio_percent": 12.4542
-    },
-    {
-      "name": "田原山上",
-      "postal_code": "719-3132",
-      "city_name": "真庭市",
-      "population": 157,
-      "students": 18,
-      "ratio_percent": 11.465
-    },
-    {
-      "name": "田羽根",
-      "postal_code": "717-0401",
-      "city_name": "真庭市",
-      "population": 103,
-      "students": 3,
-      "ratio_percent": 2.9126
-    },
-    {
-      "name": "台金屋",
-      "postal_code": "719-3227",
-      "city_name": "真庭市",
-      "population": 1239,
-      "students": 5,
-      "ratio_percent": 0.4036
-    },
-    {
-      "name": "旦土",
-      "postal_code": "719-3133",
-      "city_name": "真庭市",
-      "population": 131,
-      "students": 6,
-      "ratio_percent": 4.5802
-    },
-    {
-      "name": "月田",
-      "postal_code": "717-0024",
-      "city_name": "真庭市",
-      "population": 1042,
-      "students": 41,
-      "ratio_percent": 3.9347
-    },
-    {
-      "name": "月田本",
-      "postal_code": "717-0743",
-      "city_name": "真庭市",
-      "population": 139,
-      "students": 4,
-      "ratio_percent": 2.8777
-    },
-    {
-      "name": "都喜足",
-      "postal_code": "717-0415",
-      "city_name": "真庭市",
-      "population": 66,
-      "students": 9,
-      "ratio_percent": 13.6364
-    },
-    {
-      "name": "富尾",
-      "postal_code": "719-3203",
-      "city_name": "真庭市",
-      "population": 390,
-      "students": 51,
-      "ratio_percent": 13.0769
-    },
-    {
-      "name": "豊栄",
-      "postal_code": "717-0406",
-      "city_name": "真庭市",
-      "population": 235,
-      "students": 11,
-      "ratio_percent": 4.6809
-    },
-    {
-      "name": "中",
-      "postal_code": "719-3115",
-      "city_name": "真庭市",
-      "population": 529,
-      "students": 52,
-      "ratio_percent": 9.8299
-    },
-    {
-      "name": "中河内",
-      "postal_code": "719-3124",
-      "city_name": "真庭市",
-      "population": 296,
-      "students": 17,
-      "ratio_percent": 5.7432
-    },
-    {
-      "name": "中島",
-      "postal_code": "719-3202",
-      "city_name": "真庭市",
-      "population": 477,
-      "students": 65,
-      "ratio_percent": 13.6268
-    },
-    {
-      "name": "中原",
-      "postal_code": "719-3225",
-      "city_name": "真庭市",
-      "population": 97,
-      "students": 6,
-      "ratio_percent": 6.1856
-    },
-    {
-      "name": "仲間",
-      "postal_code": "717-0416",
-      "city_name": "真庭市",
-      "population": 89,
-      "students": 3,
-      "ratio_percent": 3.3708
-    },
-    {
-      "name": "鍋屋",
-      "postal_code": "719-3214",
-      "city_name": "真庭市",
-      "population": 651,
-      "students": 24,
-      "ratio_percent": 3.6866
-    },
-    {
-      "name": "西河内",
-      "postal_code": "719-3145",
-      "city_name": "真庭市",
-      "population": 424,
-      "students": 35,
-      "ratio_percent": 8.2547
-    },
-    {
-      "name": "西原",
-      "postal_code": "719-3105",
-      "city_name": "真庭市",
-      "population": 494,
-      "students": 19,
-      "ratio_percent": 3.8462
-    },
-    {
-      "name": "野",
-      "postal_code": "717-0734",
-      "city_name": "真庭市",
-      "population": 11,
-      "students": 0,
-      "ratio_percent": 0.0
-    },
-    {
-      "name": "野川",
-      "postal_code": "719-3106",
-      "city_name": "真庭市",
-      "population": 155,
-      "students": 20,
-      "ratio_percent": 12.9032
-    },
-    {
-      "name": "野原",
-      "postal_code": "719-3134",
-      "city_name": "真庭市",
-      "population": 37,
-      "students": 2,
-      "ratio_percent": 5.4054
-    },
-    {
-      "name": "延風",
-      "postal_code": "717-0104",
-      "city_name": "真庭市",
-      "population": 60,
       "students": 1,
-      "ratio_percent": 1.6667
+      "ratio_percent": 20
+    },
+    {
+      "name": "岩井谷",
+      "postal_code": "717-0744",
+      "city_name": "真庭市",
+      "population": 104,
+      "students": 1,
+      "ratio_percent": 0.9615
+    },
+    {
+      "name": "吉",
+      "postal_code": "719-3136",
+      "city_name": "真庭市",
+      "population": 158,
+      "students": 1,
+      "ratio_percent": 0.6329
     },
     {
       "name": "久見",
       "postal_code": "717-0405",
       "city_name": "真庭市",
       "population": 93,
-      "students": 13,
-      "ratio_percent": 13.9785
-    },
-    {
-      "name": "小童谷",
-      "postal_code": "717-0425",
-      "city_name": "真庭市",
-      "population": 0,
-      "students": 0,
-      "ratio_percent": null
-    },
-    {
-      "name": "日名",
-      "postal_code": "719-3116",
-      "city_name": "真庭市",
-      "population": 469,
-      "students": 35,
-      "ratio_percent": 7.4627
-    },
-    {
-      "name": "日野上",
-      "postal_code": "719-3146",
-      "city_name": "真庭市",
-      "population": 103,
       "students": 1,
-      "ratio_percent": 0.9709
+      "ratio_percent": 1.0753
     },
     {
-      "name": "平松",
-      "postal_code": "719-3107",
+      "name": "久世",
+      "postal_code": "719-3201",
       "city_name": "真庭市",
-      "population": 91,
-      "students": 0,
-      "ratio_percent": 0.0
-    },
-    {
-      "name": "蒜山上徳山",
-      "postal_code": "717-0612",
-      "city_name": "真庭市",
-      "population": 235,
-      "students": 3,
-      "ratio_percent": 1.2766
-    },
-    {
-      "name": "蒜山上長田",
-      "postal_code": "717-0505",
-      "city_name": "真庭市",
-      "population": 776,
-      "students": 73,
-      "ratio_percent": 9.4072
-    },
-    {
-      "name": "蒜山上福田",
-      "postal_code": "717-0602",
-      "city_name": "真庭市",
-      "population": 385,
-      "students": 45,
-      "ratio_percent": 11.6883
-    },
-    {
-      "name": "蒜山下和",
-      "postal_code": "717-0513",
-      "city_name": "真庭市",
-      "population": 261,
-      "students": 16,
-      "ratio_percent": 6.1303
-    },
-    {
-      "name": "蒜山下徳山",
-      "postal_code": "717-0613",
-      "city_name": "真庭市",
-      "population": 271,
-      "students": 2,
-      "ratio_percent": 0.738
-    },
-    {
-      "name": "蒜山下長田",
-      "postal_code": "717-0506",
-      "city_name": "真庭市",
-      "population": 374,
-      "students": 21,
-      "ratio_percent": 5.615
-    },
-    {
-      "name": "蒜山下福田",
-      "postal_code": "717-0504",
-      "city_name": "真庭市",
-      "population": 411,
-      "students": 61,
-      "ratio_percent": 14.8418
-    },
-    {
-      "name": "蒜山下見",
-      "postal_code": "717-0507",
-      "city_name": "真庭市",
-      "population": 176,
-      "students": 13,
-      "ratio_percent": 7.3864
-    },
-    {
-      "name": "蒜山富掛田",
-      "postal_code": "717-0502",
-      "city_name": "真庭市",
-      "population": 193,
-      "students": 28,
-      "ratio_percent": 14.5078
-    },
-    {
-      "name": "蒜山富山根",
-      "postal_code": "717-0503",
-      "city_name": "真庭市",
-      "population": 123,
-      "students": 15,
-      "ratio_percent": 12.1951
-    },
-    {
-      "name": "蒜山中福田",
-      "postal_code": "717-0501",
-      "city_name": "真庭市",
-      "population": 337,
-      "students": 0,
-      "ratio_percent": 0.0
-    },
-    {
-      "name": "蒜山西茅部",
-      "postal_code": "717-0604",
-      "city_name": "真庭市",
-      "population": 430,
-      "students": 46,
-      "ratio_percent": 10.6977
-    },
-    {
-      "name": "蒜山初和",
-      "postal_code": "717-0511",
-      "city_name": "真庭市",
-      "population": 26,
-      "students": 2,
-      "ratio_percent": 7.6923
-    },
-    {
-      "name": "蒜山東茅部",
-      "postal_code": "717-0603",
-      "city_name": "真庭市",
-      "population": 290,
-      "students": 23,
-      "ratio_percent": 7.931
-    },
-    {
-      "name": "蒜山別所",
-      "postal_code": "717-0515",
-      "city_name": "真庭市",
-      "population": 112,
-      "students": 4,
-      "ratio_percent": 3.5714
-    },
-    {
-      "name": "蒜山本茅部",
-      "postal_code": "717-0611",
-      "city_name": "真庭市",
-      "population": 75,
-      "students": 7,
-      "ratio_percent": 9.3333
-    },
-    {
-      "name": "蒜山真加子",
-      "postal_code": "717-0512",
-      "city_name": "真庭市",
-      "population": 30,
-      "students": 0,
-      "ratio_percent": 0.0
-    },
-    {
-      "name": "蒜山湯船",
-      "postal_code": "717-0601",
-      "city_name": "真庭市",
-      "population": 84,
-      "students": 5,
-      "ratio_percent": 5.9524
-    },
-    {
-      "name": "蒜山吉田",
-      "postal_code": "717-0514",
-      "city_name": "真庭市",
-      "population": 99,
-      "students": 6,
-      "ratio_percent": 6.0606
-    },
-    {
-      "name": "福谷",
-      "postal_code": "717-0021",
-      "city_name": "真庭市",
-      "population": 67,
-      "students": 9,
-      "ratio_percent": 13.4328
-    },
-    {
-      "name": "福田",
-      "postal_code": "719-3117",
-      "city_name": "真庭市",
-      "population": 409,
-      "students": 53,
-      "ratio_percent": 12.9584
-    },
-    {
-      "name": "藤森",
-      "postal_code": "717-0422",
-      "city_name": "真庭市",
-      "population": 71,
-      "students": 2,
-      "ratio_percent": 2.8169
-    },
-    {
-      "name": "別所",
-      "postal_code": "719-3157",
-      "city_name": "真庭市",
-      "population": 74,
-      "students": 5,
-      "ratio_percent": 6.7568
-    },
-    {
-      "name": "法界寺",
-      "postal_code": "719-3125",
-      "city_name": "真庭市",
-      "population": 94,
-      "students": 2,
-      "ratio_percent": 2.1277
-    },
-    {
-      "name": "星山",
-      "postal_code": "717-0001",
-      "city_name": "真庭市",
-      "population": 24,
-      "students": 3,
-      "ratio_percent": 12.5
-    },
-    {
-      "name": "本郷",
-      "postal_code": "717-0007",
-      "city_name": "真庭市",
-      "population": 738,
-      "students": 96,
-      "ratio_percent": 13.0081
-    },
-    {
-      "name": "本庄",
-      "postal_code": "717-0412",
-      "city_name": "真庭市",
-      "population": 140,
-      "students": 6,
-      "ratio_percent": 4.2857
-    },
-    {
-      "name": "舞高",
-      "postal_code": "719-3135",
-      "city_name": "真庭市",
-      "population": 12,
+      "population": 3354,
       "students": 1,
-      "ratio_percent": 8.3333
-    },
-    {
-      "name": "真賀",
-      "postal_code": "717-0017",
-      "city_name": "真庭市",
-      "population": 8,
-      "students": 0,
-      "ratio_percent": 0.0
-    },
-    {
-      "name": "曲り",
-      "postal_code": "717-0731",
-      "city_name": "真庭市",
-      "population": 29,
-      "students": 0,
-      "ratio_percent": 0.0
-    },
-    {
-      "name": "正吉",
-      "postal_code": "717-0016",
-      "city_name": "真庭市",
-      "population": 49,
-      "students": 5,
-      "ratio_percent": 10.2041
-    },
-    {
-      "name": "見明戸",
-      "postal_code": "717-0411",
-      "city_name": "真庭市",
-      "population": 186,
-      "students": 15,
-      "ratio_percent": 8.0645
-    },
-    {
-      "name": "見尾",
-      "postal_code": "717-0011",
-      "city_name": "真庭市",
-      "population": 58,
-      "students": 6,
-      "ratio_percent": 10.3448
-    },
-    {
-      "name": "美甘",
-      "postal_code": "717-0105",
-      "city_name": "真庭市",
-      "population": 614,
-      "students": 48,
-      "ratio_percent": 7.8176
-    },
-    {
-      "name": "三阪",
-      "postal_code": "719-3212",
-      "city_name": "真庭市",
-      "population": 180,
-      "students": 0,
-      "ratio_percent": 0.0
-    },
-    {
-      "name": "三崎",
-      "postal_code": "719-3226",
-      "city_name": "真庭市",
-      "population": 139,
-      "students": 6,
-      "ratio_percent": 4.3165
-    },
-    {
-      "name": "三世七原",
-      "postal_code": "717-0426",
-      "city_name": "真庭市",
-      "population": 0,
-      "students": 0,
-      "ratio_percent": null
+      "ratio_percent": 0.0298
     },
     {
       "name": "宮地",
@@ -1065,291 +232,1123 @@
       "ratio_percent": 0.157
     },
     {
+      "name": "曲り",
+      "postal_code": "717-0731",
+      "city_name": "真庭市",
+      "population": 29,
+      "students": 1,
+      "ratio_percent": 3.4483
+    },
+    {
+      "name": "栗原",
+      "postal_code": "719-3153",
+      "city_name": "真庭市",
+      "population": 1052,
+      "students": 1,
+      "ratio_percent": 0.0951
+    },
+    {
+      "name": "月田",
+      "postal_code": "717-0024",
+      "city_name": "真庭市",
+      "population": 1042,
+      "students": 1,
+      "ratio_percent": 0.096
+    },
+    {
+      "name": "月田本",
+      "postal_code": "717-0743",
+      "city_name": "真庭市",
+      "population": 139,
+      "students": 1,
+      "ratio_percent": 0.7194
+    },
+    {
+      "name": "見尾",
+      "postal_code": "717-0011",
+      "city_name": "真庭市",
+      "population": 58,
+      "students": 1,
+      "ratio_percent": 1.7241
+    },
+    {
+      "name": "見明戸",
+      "postal_code": "717-0411",
+      "city_name": "真庭市",
+      "population": 186,
+      "students": 1,
+      "ratio_percent": 0.5376
+    },
+    {
+      "name": "古見",
+      "postal_code": "719-3103",
+      "city_name": "真庭市",
+      "population": 597,
+      "students": 1,
+      "ratio_percent": 0.1675
+    },
+    {
+      "name": "古呂々尾中",
+      "postal_code": "717-0736",
+      "city_name": "真庭市",
+      "population": 37,
+      "students": 1,
+      "ratio_percent": 2.7027
+    },
+    {
+      "name": "五反",
+      "postal_code": "719-3228",
+      "city_name": "真庭市",
+      "population": 112,
+      "students": 1,
+      "ratio_percent": 0.8929
+    },
+    {
+      "name": "五名",
+      "postal_code": "716-1401",
+      "city_name": "真庭市",
+      "population": 256,
+      "students": 1,
+      "ratio_percent": 0.3906
+    },
+    {
+      "name": "後谷",
+      "postal_code": "717-0742",
+      "city_name": "真庭市",
+      "population": 84,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "後谷畝",
+      "postal_code": "717-0025",
+      "city_name": "真庭市",
+      "population": 22,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
       "name": "向津矢",
       "postal_code": "719-3126",
       "city_name": "真庭市",
       "population": 106,
-      "students": 14,
-      "ratio_percent": 13.2075
+      "students": null,
+      "ratio_percent": null
     },
     {
-      "name": "目木",
-      "postal_code": "719-3224",
+      "name": "江川",
+      "postal_code": "717-0023",
       "city_name": "真庭市",
-      "population": 879,
-      "students": 115,
-      "ratio_percent": 13.083
+      "population": 537,
+      "students": null,
+      "ratio_percent": null
     },
     {
-      "name": "社",
-      "postal_code": "717-0404",
+      "name": "荒田",
+      "postal_code": "717-0026",
       "city_name": "真庭市",
-      "population": 204,
-      "students": 25,
-      "ratio_percent": 12.2549
+      "population": 127,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "高屋",
+      "postal_code": "719-3114",
+      "city_name": "真庭市",
+      "population": 46,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "高田山上",
+      "postal_code": "717-0732",
+      "city_name": "真庭市",
+      "population": 59,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "黒杭",
+      "postal_code": "717-0423",
+      "city_name": "真庭市",
+      "population": 24,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "黒田",
+      "postal_code": "717-0102",
+      "city_name": "真庭市",
+      "population": 117,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "佐引",
+      "postal_code": "719-3154",
+      "city_name": "真庭市",
+      "population": 79,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "三阪",
+      "postal_code": "719-3212",
+      "city_name": "真庭市",
+      "population": 180,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "三崎",
+      "postal_code": "719-3226",
+      "city_name": "真庭市",
+      "population": 139,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "三世七原",
+      "postal_code": "717-0426",
+      "city_name": "真庭市",
+      "population": 0,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "三田",
+      "postal_code": "717-0022",
+      "city_name": "真庭市",
+      "population": 245,
+      "students": null,
+      "ratio_percent": null
     },
     {
       "name": "山久世",
       "postal_code": "717-0012",
       "city_name": "真庭市",
       "population": 180,
-      "students": 8,
-      "ratio_percent": 4.4444
+      "students": null,
+      "ratio_percent": null
     },
     {
       "name": "山田",
       "postal_code": "716-1402",
       "city_name": "真庭市",
       "population": 229,
-      "students": 1,
-      "ratio_percent": 0.4367
+      "students": null,
+      "ratio_percent": null
     },
     {
-      "name": "湯原温泉",
-      "postal_code": "717-0402",
+      "name": "鹿田",
+      "postal_code": "719-3152",
       "city_name": "真庭市",
-      "population": 275,
-      "students": 36,
-      "ratio_percent": 13.0909
+      "population": 543,
+      "students": null,
+      "ratio_percent": null
     },
     {
-      "name": "横部",
-      "postal_code": "717-0005",
+      "name": "柴原",
+      "postal_code": "717-0014",
       "city_name": "真庭市",
-      "population": 115,
-      "students": 16,
-      "ratio_percent": 13.913
+      "population": 71,
+      "students": null,
+      "ratio_percent": null
     },
     {
-      "name": "吉",
-      "postal_code": "719-3136",
+      "name": "社",
+      "postal_code": "717-0404",
       "city_name": "真庭市",
-      "population": 158,
-      "students": 2,
-      "ratio_percent": 1.2658
-    },
-    {
-      "name": "余野上",
-      "postal_code": "719-3221",
-      "city_name": "真庭市",
-      "population": 142,
-      "students": 10,
-      "ratio_percent": 7.0423
-    },
-    {
-      "name": "余野下",
-      "postal_code": "719-3222",
-      "city_name": "真庭市",
-      "population": 155,
-      "students": 1,
-      "ratio_percent": 0.6452
+      "population": 204,
+      "students": null,
+      "ratio_percent": null
     },
     {
       "name": "若代",
       "postal_code": "717-0741",
       "city_name": "真庭市",
       "population": 264,
-      "students": 30,
-      "ratio_percent": 11.3636
+      "students": null,
+      "ratio_percent": null
     },
     {
       "name": "若代畝",
       "postal_code": "717-0733",
       "city_name": "真庭市",
       "population": 28,
-      "students": 3,
-      "ratio_percent": 10.7143
+      "students": null,
+      "ratio_percent": null
     },
     {
-      "name": "新庄村 野土路",
-      "postal_code": "717-0201",
-      "city_name": "新庄村",
-      "population": 41,
-      "students": 0,
-      "ratio_percent": 0.0
+      "name": "種",
+      "postal_code": "717-0424",
+      "city_name": "真庭市",
+      "population": 181,
+      "students": null,
+      "ratio_percent": null
     },
     {
-      "name": "新庄村 高下",
-      "postal_code": "717-0201",
-      "city_name": "新庄村",
-      "population": 22,
-      "students": 1,
-      "ratio_percent": 4.5455
+      "name": "勝山",
+      "postal_code": "717-0013",
+      "city_name": "真庭市",
+      "population": 1603,
+      "students": null,
+      "ratio_percent": null
     },
     {
-      "name": "新庄村 中谷",
-      "postal_code": "717-0201",
-      "city_name": "新庄村",
-      "population": 12,
-      "students": 0,
-      "ratio_percent": 0.0
+      "name": "小童谷",
+      "postal_code": "717-0425",
+      "city_name": "真庭市",
+      "population": 0,
+      "students": null,
+      "ratio_percent": null
     },
     {
-      "name": "新庄村 浦手",
-      "postal_code": "717-0201",
-      "city_name": "新庄村",
-      "population": 46,
-      "students": 1,
-      "ratio_percent": 2.1739
+      "name": "上",
+      "postal_code": "717-0746",
+      "city_name": "真庭市",
+      "population": 184,
+      "students": null,
+      "ratio_percent": null
     },
     {
-      "name": "新庄村 梨瀬",
-      "postal_code": "717-0201",
-      "city_name": "新庄村",
-      "population": 34,
-      "students": 4,
-      "ratio_percent": 11.7647
+      "name": "上河内",
+      "postal_code": "719-3121",
+      "city_name": "真庭市",
+      "population": 535,
+      "students": null,
+      "ratio_percent": null
     },
     {
-      "name": "新庄村 大原",
-      "postal_code": "717-0201",
-      "city_name": "新庄村",
-      "population": 51,
-      "students": 3,
-      "ratio_percent": 5.8824
+      "name": "上山",
+      "postal_code": "719-3131",
+      "city_name": "真庭市",
+      "population": 48,
+      "students": null,
+      "ratio_percent": null
     },
     {
-      "name": "新庄村 滝ノ尻",
-      "postal_code": "717-0201",
-      "city_name": "新庄村",
-      "population": 11,
-      "students": 0,
-      "ratio_percent": 0.0
+      "name": "上市瀬",
+      "postal_code": "719-3141",
+      "city_name": "真庭市",
+      "population": 696,
+      "students": null,
+      "ratio_percent": null
     },
     {
-      "name": "新庄村 田浪",
-      "postal_code": "717-0201",
-      "city_name": "新庄村",
-      "population": 27,
-      "students": 2,
-      "ratio_percent": 7.4074
+      "name": "上水田",
+      "postal_code": "716-1411",
+      "city_name": "真庭市",
+      "population": 1359,
+      "students": null,
+      "ratio_percent": null
     },
     {
-      "name": "新庄村 二ツ橋",
-      "postal_code": "717-0201",
-      "city_name": "新庄村",
-      "population": 22,
-      "students": 2,
-      "ratio_percent": 9.0909
+      "name": "上中津井",
+      "postal_code": "716-1422",
+      "city_name": "真庭市",
+      "population": 520,
+      "students": null,
+      "ratio_percent": null
     },
     {
-      "name": "新庄村 戸島",
-      "postal_code": "717-0201",
-      "city_name": "新庄村",
-      "population": 61,
-      "students": 1,
-      "ratio_percent": 1.6393
-    },
-    {
-      "name": "新庄村 田井",
-      "postal_code": "717-0201",
-      "city_name": "新庄村",
-      "population": 34,
-      "students": 1,
-      "ratio_percent": 2.9412
-    },
-    {
-      "name": "新庄村 田中",
-      "postal_code": "717-0201",
-      "city_name": "新庄村",
-      "population": 56,
-      "students": 8,
-      "ratio_percent": 14.2857
-    },
-    {
-      "name": "新庄村 鍛治屋",
-      "postal_code": "717-0201",
-      "city_name": "新庄村",
-      "population": 43,
-      "students": 4,
-      "ratio_percent": 9.3023
-    },
-    {
-      "name": "新庄村 幸町",
-      "postal_code": "717-0201",
-      "city_name": "新庄村",
-      "population": 98,
-      "students": 6,
-      "ratio_percent": 6.1224
-    },
-    {
-      "name": "新庄村 上町",
-      "postal_code": "717-0201",
-      "city_name": "新庄村",
-      "population": 28,
-      "students": 2,
-      "ratio_percent": 7.1429
-    },
-    {
-      "name": "新庄村 本町",
-      "postal_code": "717-0201",
-      "city_name": "新庄村",
-      "population": 21,
-      "students": 0,
-      "ratio_percent": 0.0
-    },
-    {
-      "name": "新庄村 中町",
-      "postal_code": "717-0201",
-      "city_name": "新庄村",
-      "population": 17,
-      "students": 0,
-      "ratio_percent": 0.0
-    },
-    {
-      "name": "新庄村 東町",
-      "postal_code": "717-0201",
-      "city_name": "新庄村",
-      "population": 27,
-      "students": 1,
-      "ratio_percent": 3.7037
-    },
-    {
-      "name": "新庄村 西町",
-      "postal_code": "717-0201",
-      "city_name": "新庄村",
-      "population": 23,
-      "students": 2,
-      "ratio_percent": 8.6957
+      "name": "上呰部",
+      "postal_code": "716-1432",
+      "city_name": "真庭市",
+      "population": 206,
+      "students": null,
+      "ratio_percent": null
     },
     {
       "name": "新庄村 旭町",
       "postal_code": "717-0201",
       "city_name": "新庄村",
       "population": 45,
-      "students": 1,
-      "ratio_percent": 2.2222
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "新庄村 浦手",
+      "postal_code": "717-0201",
+      "city_name": "新庄村",
+      "population": 46,
+      "students": null,
+      "ratio_percent": null
     },
     {
       "name": "新庄村 茅見",
       "postal_code": "717-0201",
       "city_name": "新庄村",
       "population": 40,
-      "students": 1,
-      "ratio_percent": 2.5
+      "students": null,
+      "ratio_percent": null
     },
     {
-      "name": "新庄村 大所",
+      "name": "新庄村 戸島",
       "postal_code": "717-0201",
       "city_name": "新庄村",
-      "population": 38,
-      "students": 0,
-      "ratio_percent": 0.0
+      "population": 61,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "新庄村 幸町",
+      "postal_code": "717-0201",
+      "city_name": "新庄村",
+      "population": 98,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "新庄村 高下",
+      "postal_code": "717-0201",
+      "city_name": "新庄村",
+      "population": 22,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "新庄村 上町",
+      "postal_code": "717-0201",
+      "city_name": "新庄村",
+      "population": 28,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "新庄村 西町",
+      "postal_code": "717-0201",
+      "city_name": "新庄村",
+      "population": 23,
+      "students": null,
+      "ratio_percent": null
     },
     {
       "name": "新庄村 村営住宅",
       "postal_code": "717-0201",
       "city_name": "新庄村",
       "population": 16,
-      "students": 1,
-      "ratio_percent": 6.25
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "新庄村 大原",
+      "postal_code": "717-0201",
+      "city_name": "新庄村",
+      "population": 51,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "新庄村 大所",
+      "postal_code": "717-0201",
+      "city_name": "新庄村",
+      "population": 38,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "新庄村 滝ノ尻",
+      "postal_code": "717-0201",
+      "city_name": "新庄村",
+      "population": 11,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "新庄村 鍛治屋",
+      "postal_code": "717-0201",
+      "city_name": "新庄村",
+      "population": 43,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "新庄村 中谷",
+      "postal_code": "717-0201",
+      "city_name": "新庄村",
+      "population": 12,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "新庄村 中町",
+      "postal_code": "717-0201",
+      "city_name": "新庄村",
+      "population": 17,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "新庄村 田井",
+      "postal_code": "717-0201",
+      "city_name": "新庄村",
+      "population": 34,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "新庄村 田中",
+      "postal_code": "717-0201",
+      "city_name": "新庄村",
+      "population": 56,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "新庄村 田浪",
+      "postal_code": "717-0201",
+      "city_name": "新庄村",
+      "population": 27,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "新庄村 東町",
+      "postal_code": "717-0201",
+      "city_name": "新庄村",
+      "population": 27,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "新庄村 二ツ橋",
+      "postal_code": "717-0201",
+      "city_name": "新庄村",
+      "population": 22,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "新庄村 本町",
+      "postal_code": "717-0201",
+      "city_name": "新庄村",
+      "population": 21,
+      "students": null,
+      "ratio_percent": null
     },
     {
       "name": "新庄村 名称なし",
       "postal_code": "717-0201",
       "city_name": "新庄村",
       "population": 0,
-      "students": 0,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "新庄村 野土路",
+      "postal_code": "717-0201",
+      "city_name": "新庄村",
+      "population": 41,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "新庄村 梨瀬",
+      "postal_code": "717-0201",
+      "city_name": "新庄村",
+      "population": 34,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "真賀",
+      "postal_code": "717-0017",
+      "city_name": "真庭市",
+      "population": 8,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "神",
+      "postal_code": "719-3206",
+      "city_name": "真庭市",
+      "population": 0,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "神代",
+      "postal_code": "717-0027",
+      "city_name": "真庭市",
+      "population": 195,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "神庭",
+      "postal_code": "717-0004",
+      "city_name": "真庭市",
+      "population": 94,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "杉山",
+      "postal_code": "719-3113",
+      "city_name": "真庭市",
+      "population": 64,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "菅谷",
+      "postal_code": "717-0002",
+      "city_name": "真庭市",
+      "population": 4,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "星山",
+      "postal_code": "717-0001",
+      "city_name": "真庭市",
+      "population": 24,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "正吉",
+      "postal_code": "717-0016",
+      "city_name": "真庭市",
+      "population": 49,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "清谷",
+      "postal_code": "717-0737",
+      "city_name": "真庭市",
+      "population": 57,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "西河内",
+      "postal_code": "719-3145",
+      "city_name": "真庭市",
+      "population": 424,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "西原",
+      "postal_code": "719-3105",
+      "city_name": "真庭市",
+      "population": 494,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "赤野",
+      "postal_code": "719-3101",
+      "city_name": "真庭市",
+      "population": 226,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "組",
+      "postal_code": "717-0006",
+      "city_name": "真庭市",
+      "population": 390,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "惣",
+      "postal_code": "719-3204",
+      "city_name": "真庭市",
+      "population": 469,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "草加部",
+      "postal_code": "719-3205",
+      "city_name": "真庭市",
+      "population": 745,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "多田",
+      "postal_code": "719-3213",
+      "city_name": "真庭市",
+      "population": 796,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "台金屋",
+      "postal_code": "719-3227",
+      "city_name": "真庭市",
+      "population": 1239,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "大庭",
+      "postal_code": "719-3102",
+      "city_name": "真庭市",
+      "population": 314,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "旦土",
+      "postal_code": "719-3133",
+      "city_name": "真庭市",
+      "population": 131,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "竹原",
+      "postal_code": "717-0003",
+      "city_name": "真庭市",
+      "population": 5,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "中",
+      "postal_code": "719-3115",
+      "city_name": "真庭市",
+      "population": 529,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "中河内",
+      "postal_code": "719-3124",
+      "city_name": "真庭市",
+      "population": 296,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "中原",
+      "postal_code": "719-3225",
+      "city_name": "真庭市",
+      "population": 97,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "中島",
+      "postal_code": "719-3202",
+      "city_name": "真庭市",
+      "population": 477,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "仲間",
+      "postal_code": "717-0416",
+      "city_name": "真庭市",
+      "population": 89,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "釘貫小川",
+      "postal_code": "717-0414",
+      "city_name": "真庭市",
+      "population": 70,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "鉄山",
+      "postal_code": "717-0101",
+      "city_name": "真庭市",
+      "population": 145,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "田羽根",
+      "postal_code": "717-0401",
+      "city_name": "真庭市",
+      "population": 103,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "田原",
+      "postal_code": "719-3104",
+      "city_name": "真庭市",
+      "population": 273,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "田原山上",
+      "postal_code": "719-3132",
+      "city_name": "真庭市",
+      "population": 157,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "田口",
+      "postal_code": "717-0103",
+      "city_name": "真庭市",
+      "population": 112,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "都喜足",
+      "postal_code": "717-0415",
+      "city_name": "真庭市",
+      "population": 66,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "湯原温泉",
+      "postal_code": "717-0402",
+      "city_name": "真庭市",
+      "population": 275,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "藤森",
+      "postal_code": "717-0422",
+      "city_name": "真庭市",
+      "population": 71,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "鍋屋",
+      "postal_code": "719-3214",
+      "city_name": "真庭市",
+      "population": 651,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "日名",
+      "postal_code": "719-3116",
+      "city_name": "真庭市",
+      "population": 469,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "日野上",
+      "postal_code": "719-3146",
+      "city_name": "真庭市",
+      "population": 103,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "美甘",
+      "postal_code": "717-0105",
+      "city_name": "真庭市",
+      "population": 614,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "蒜山下見",
+      "postal_code": "717-0507",
+      "city_name": "真庭市",
+      "population": 176,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "蒜山下長田",
+      "postal_code": "717-0506",
+      "city_name": "真庭市",
+      "population": 374,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "蒜山下徳山",
+      "postal_code": "717-0613",
+      "city_name": "真庭市",
+      "population": 271,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "蒜山下福田",
+      "postal_code": "717-0504",
+      "city_name": "真庭市",
+      "population": 411,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "蒜山下和",
+      "postal_code": "717-0513",
+      "city_name": "真庭市",
+      "population": 261,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "蒜山吉田",
+      "postal_code": "717-0514",
+      "city_name": "真庭市",
+      "population": 99,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "蒜山初和",
+      "postal_code": "717-0511",
+      "city_name": "真庭市",
+      "population": 26,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "蒜山上長田",
+      "postal_code": "717-0505",
+      "city_name": "真庭市",
+      "population": 776,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "蒜山上徳山",
+      "postal_code": "717-0612",
+      "city_name": "真庭市",
+      "population": 235,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "蒜山上福田",
+      "postal_code": "717-0602",
+      "city_name": "真庭市",
+      "population": 385,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "蒜山真加子",
+      "postal_code": "717-0512",
+      "city_name": "真庭市",
+      "population": 30,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "蒜山西茅部",
+      "postal_code": "717-0604",
+      "city_name": "真庭市",
+      "population": 430,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "蒜山中福田",
+      "postal_code": "717-0501",
+      "city_name": "真庭市",
+      "population": 337,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "蒜山東茅部",
+      "postal_code": "717-0603",
+      "city_name": "真庭市",
+      "population": 290,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "蒜山湯船",
+      "postal_code": "717-0601",
+      "city_name": "真庭市",
+      "population": 84,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "蒜山富掛田",
+      "postal_code": "717-0502",
+      "city_name": "真庭市",
+      "population": 193,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "蒜山富山根",
+      "postal_code": "717-0503",
+      "city_name": "真庭市",
+      "population": 123,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "蒜山別所",
+      "postal_code": "717-0515",
+      "city_name": "真庭市",
+      "population": 112,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "蒜山本茅部",
+      "postal_code": "717-0611",
+      "city_name": "真庭市",
+      "population": 75,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "富尾",
+      "postal_code": "719-3203",
+      "city_name": "真庭市",
+      "population": 390,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "舞高",
+      "postal_code": "719-3135",
+      "city_name": "真庭市",
+      "population": 12,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "福谷",
+      "postal_code": "717-0021",
+      "city_name": "真庭市",
+      "population": 67,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "福田",
+      "postal_code": "719-3117",
+      "city_name": "真庭市",
+      "population": 409,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "平松",
+      "postal_code": "719-3107",
+      "city_name": "真庭市",
+      "population": 91,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "別所",
+      "postal_code": "719-3157",
+      "city_name": "真庭市",
+      "population": 74,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "法界寺",
+      "postal_code": "719-3125",
+      "city_name": "真庭市",
+      "population": 94,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "豊栄",
+      "postal_code": "717-0406",
+      "city_name": "真庭市",
+      "population": 235,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "本郷",
+      "postal_code": "717-0007",
+      "city_name": "真庭市",
+      "population": 738,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "本庄",
+      "postal_code": "717-0412",
+      "city_name": "真庭市",
+      "population": 140,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "木山",
+      "postal_code": "719-3142",
+      "city_name": "真庭市",
+      "population": 47,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "目木",
+      "postal_code": "719-3224",
+      "city_name": "真庭市",
+      "population": 879,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "野",
+      "postal_code": "717-0734",
+      "city_name": "真庭市",
+      "population": 11,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "野原",
+      "postal_code": "719-3134",
+      "city_name": "真庭市",
+      "population": 37,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "野川",
+      "postal_code": "719-3106",
+      "city_name": "真庭市",
+      "population": 155,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "余野下",
+      "postal_code": "719-3222",
+      "city_name": "真庭市",
+      "population": 155,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "余野上",
+      "postal_code": "719-3221",
+      "city_name": "真庭市",
+      "population": 142,
+      "students": null,
+      "ratio_percent": null
+    },
+    {
+      "name": "落合垂水",
+      "postal_code": "719-3144",
+      "city_name": "真庭市",
+      "population": 1269,
+      "students": null,
       "ratio_percent": null
     }
   ]
