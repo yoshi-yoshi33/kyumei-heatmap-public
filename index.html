@@ -98,6 +98,83 @@
   .summary-row .v { color:#c0392b; font-weight:bold; }
   .updated-at { font-size: 11px; color:#7f8c8d; margin-top:4px; }
   .credit { font-size:10px; color:#95a5a6; padding:6px 16px; }
+  .mobile-tools {
+    display: none;
+    gap: 8px;
+    padding: 10px 12px;
+    background: #fff;
+    border-bottom: 1px solid #e2e6eb;
+  }
+  .mobile-tools button {
+    flex: 1;
+    border: 1px solid #cfd8e3;
+    background: #f8fbff;
+    color: #2c3e50;
+    border-radius: 8px;
+    padding: 9px 10px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .mobile-tools button.active {
+    background: #2c3e50;
+    color: #fff;
+    border-color: #2c3e50;
+  }
+  @media (max-width: 768px) {
+    #app { display: block; position: relative; height: 100vh; }
+    #map { width: 100%; height: 100vh; }
+    #sidebar {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      width: auto;
+      max-height: calc(100vh - 20px);
+      border-left: none;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      background: rgba(247,248,250,0.96);
+      backdrop-filter: blur(4px);
+    }
+    .panel-header {
+      padding: 12px 14px;
+      border-radius: 12px 12px 0 0;
+    }
+    .panel-header small { font-size: 10px; }
+    .mobile-tools { display: flex; }
+    #summarySection,
+    #searchSection,
+    #list,
+    .credit {
+      display: none;
+    }
+    #sidebar.summary-open #summarySection { display: block; }
+    #sidebar.list-open #searchSection,
+    #sidebar.list-open #list,
+    #sidebar.list-open .credit {
+      display: block;
+    }
+    #list {
+      max-height: 38vh;
+      background: #fff;
+      border-top: 1px solid #e2e6eb;
+    }
+    .status {
+      padding: 6px 12px;
+      font-size: 10px;
+    }
+    .info-box {
+      min-width: 180px;
+      max-width: 75vw;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .legend {
+      font-size: 10px;
+      line-height: 1.4;
+      padding: 6px 8px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -110,13 +187,18 @@
       <small>真庭市 / 新庄村 — 対人口受講率 (%)</small>
     </div>
 
-    <div class="panel-section">
+    <div class="mobile-tools">
+      <button type="button" id="summaryToggle" onclick="toggleSummaryPanel()">📊 サマリーを表示</button>
+      <button type="button" id="listToggle" onclick="toggleListPanel()">📍 地区一覧を表示</button>
+    </div>
+
+    <div class="panel-section" id="summarySection">
       <h3>📊 統計サマリー</h3>
       <div id="summary"></div>
       <div class="updated-at" id="updatedAt"></div>
     </div>
 
-    <div class="panel-section">
+    <div class="panel-section" id="searchSection">
       <h3>🔍 地区検索</h3>
       <input type="text" class="search-input" id="searchBox" placeholder="地区名で絞り込み" oninput="renderList()">
     </div>
@@ -152,6 +234,7 @@ let geoData = null;
 let dataMap = {};     // { 地区名: { students, ratio_percent, population, ... } }
 let summary = null;
 let minVal = 0, maxVal = 100;
+const sidebarEl = document.getElementById('sidebar');
 
 const map = L.map('map').setView([35.10, 133.65], 11);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -369,11 +452,56 @@ function zoomTo(name) {
       layer.openTooltip();
     }
   });
+  if (window.innerWidth <= 768) {
+    sidebarEl.classList.remove('list-open', 'summary-open');
+    updateMobileButtons();
+    setTimeout(() => map.invalidateSize(), 150);
+  }
 }
+
+function updateMobileButtons() {
+  const summaryBtn = document.getElementById('summaryToggle');
+  const listBtn = document.getElementById('listToggle');
+  if (!summaryBtn || !listBtn) return;
+  const summaryOpen = sidebarEl.classList.contains('summary-open');
+  const listOpen = sidebarEl.classList.contains('list-open');
+  summaryBtn.classList.toggle('active', summaryOpen);
+  listBtn.classList.toggle('active', listOpen);
+  summaryBtn.textContent = summaryOpen ? '📊 サマリーを閉じる' : '📊 サマリーを表示';
+  listBtn.textContent = listOpen ? '📍 地区一覧を閉じる' : '📍 地区一覧を表示';
+}
+
+function toggleSummaryPanel() {
+  if (window.innerWidth > 768) return;
+  const willOpen = !sidebarEl.classList.contains('summary-open');
+  sidebarEl.classList.toggle('summary-open', willOpen);
+  sidebarEl.classList.remove('list-open');
+  updateMobileButtons();
+  setTimeout(() => map.invalidateSize(), 150);
+}
+
+function toggleListPanel() {
+  if (window.innerWidth > 768) return;
+  const willOpen = !sidebarEl.classList.contains('list-open');
+  sidebarEl.classList.toggle('list-open', willOpen);
+  sidebarEl.classList.remove('summary-open');
+  updateMobileButtons();
+  setTimeout(() => map.invalidateSize(), 150);
+}
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    sidebarEl.classList.remove('summary-open', 'list-open');
+  }
+  updateMobileButtons();
+  setTimeout(() => map.invalidateSize(), 50);
+});
 
 function setStatus(msg) { document.getElementById('statusBar').textContent = msg; }
 function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function escapeJs(s) { return String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'"); }
+
+updateMobileButtons();
 
 // 初期化: GeoJSON と heatmap-data.json を並行取得
 Promise.all([
@@ -398,9 +526,12 @@ Promise.all([
     setStatus('受講者数データ (heatmap-data.json) がまだ配置されていません');
   }
   drawGeoJSON(geo);
+  updateMobileButtons();
+  setTimeout(() => map.invalidateSize(), 150);
 }).catch(err => {
   setStatus('読み込みエラー: ' + err.message);
 });
 </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
