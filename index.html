@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>普通救命講習受講者ヒートマップ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; font-family: "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif; }
+  #app { display: flex; height: 100vh; }
+  #map { flex: 1; }
+  #sidebar {
+    width: 320px;
+    background: #f7f8fa;
+    border-left: 1px solid #d8dde3;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .panel-header {
+    padding: 14px 16px;
+    background: #2c3e50;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .panel-header small { display:block; font-size:11px; opacity:0.85; font-weight:400; margin-top:4px; }
+  .panel-section {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e2e6eb;
+    background: #fff;
+  }
+  .panel-section h3 {
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    color: #2c3e50;
+  }
+  #list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 4px 0;
+  }
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 16px;
+    border-bottom: 1px solid #ecf0f1;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .list-item:hover { background: #ecf6ff; }
+  .list-item .name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .list-item .ratio { font-weight: bold; color: #c0392b; margin-left: 8px; }
+  .legend {
+    background: #fff;
+    padding: 8px 10px;
+    line-height: 18px;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    font-size: 12px;
+  }
+  .legend i {
+    display: inline-block;
+    width: 18px;
+    height: 14px;
+    margin-right: 6px;
+    vertical-align: middle;
+    opacity: 0.85;
+  }
+  .info-box {
+    background: #fff;
+    padding: 10px 14px;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    font-size: 13px;
+    min-width: 240px;
+    line-height: 1.6;
+  }
+  .info-box h4 { margin: 0 0 4px 0; font-size: 13px; color: #2c3e50; }
+  .info-box .ratio { font-size: 18px; font-weight: bold; color: #c0392b; }
+  .status {
+    font-size: 11px;
+    color: #2c3e50;
+    padding: 6px 16px;
+    background: #ecf0f1;
+  }
+  .search-input {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid #bdc3c7;
+    border-radius: 3px;
+    font-size: 12px;
+  }
+  .summary-row { display:flex; justify-content:space-between; font-size:12px; padding:3px 0; }
+  .summary-row b { color:#2c3e50; }
+  .summary-row .v { color:#c0392b; font-weight:bold; }
+  .updated-at { font-size: 11px; color:#7f8c8d; margin-top:4px; }
+  .credit { font-size:10px; color:#95a5a6; padding:6px 16px; }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="map"></div>
+
+  <aside id="sidebar">
+    <div class="panel-header">
+      🚑 普通救命講習受講者ヒートマップ
+      <small>真庭市 / 新庄村 — 対人口受講率 (%)</small>
+    </div>
+
+    <div class="panel-section">
+      <h3>📊 統計サマリー</h3>
+      <div id="summary"></div>
+      <div class="updated-at" id="updatedAt"></div>
+    </div>
+
+    <div class="panel-section">
+      <h3>🔍 地区検索</h3>
+      <input type="text" class="search-input" id="searchBox" placeholder="地区名で絞り込み" oninput="renderList()">
+    </div>
+
+    <div id="list"></div>
+    <div class="status" id="statusBar">読み込み中…</div>
+    <div class="credit">© 真庭市 / OpenStreetMap contributors</div>
+  </aside>
+</div>
+
+<script>
+/* ============================================================
+ *  【閲覧用】普通救命講習受講者ヒートマップ
+ *  ------------------------------------------------------------
+ *  - 公開ページ用 (閲覧専用)
+ *  - GeoJSON: sample_data.geojson
+ *  - データ:   heatmap-data.json  (管理用で生成)
+ *  - 指標: 受講者数 ÷ 人口 × 100 (%)
+ *  - 編集機能なし / localStorage 使用なし
+ * ============================================================ */
+
+const GEOJSON_URL = "sample_data.geojson";
+const DATA_URL = "heatmap-data.json";
+
+const COLOR_SCALE = [
+  "#2c7bb6", "#00a6ca", "#00ccbc", "#90eb9d",
+  "#ffff8c", "#f9d057", "#f29e2e"
+];
+const COLOR_HIGH = "#d7191c";
+
+let geoLayer = null;
+let geoData = null;
+let dataMap = {};     // { 地区名: { students, ratio_percent, population, ... } }
+let summary = null;
+let minVal = 0, maxVal = 100;
+
+const map = L.map('map').setView([35.10, 133.65], 11);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors',
+  maxZoom: 18
+}).addTo(map);
+
+const legend = L.control({ position: 'bottomright' });
+legend.onAdd = function() {
+  const div = L.DomUtil.create('div', 'legend');
+  div.innerHTML = makeLegendHtml();
+  return div;
+};
+legend.addTo(map);
+
+function makeLegendHtml() {
+  let html = '<b>受講率 (%)</b><br>';
+  if (maxVal <= minVal) {
+    html += '<small style="color:#999;">データなし</small><br>';
+  } else {
+    const step = (maxVal - minVal) / 7;
+    for (let i=0; i<7; i++) {
+      const lo = (minVal + step * i).toFixed(2);
+      const hi = (minVal + step * (i+1)).toFixed(2);
+      html += `<i style="background:${COLOR_SCALE[i]}"></i> ${lo}–${hi}%<br>`;
+    }
+    html += `<i style="background:${COLOR_HIGH}"></i> 最高値 (${maxVal.toFixed(2)}%)<br>`;
+  }
+  html += '<i style="background:#e0e0e0"></i> 未入力 / 人口0';
+  return html;
+}
+function updateLegend() {
+  const el = document.querySelector('.legend');
+  if (el) el.innerHTML = makeLegendHtml();
+}
+
+const info = L.control({ position: 'topright' });
+info.onAdd = function() {
+  this._div = L.DomUtil.create('div', 'info-box');
+  this.update();
+  return this._div;
+};
+info.update = function(props) {
+  let html = '<h4>地区情報</h4>';
+  if (props) {
+    const name = props.__name;
+    const d = dataMap[name] || {};
+    const pop = Number(d.population ?? props.population ?? 0);
+    const students = (d.students != null) ? Number(d.students) : null;
+    const ratio = d.ratio_percent;
+    html += `<b>${escapeHtml(name)}</b><br>`;
+    html += `自治体: ${escapeHtml(props.city_name || '')}<br>`;
+    if (props.postal_code) html += `郵便番号: ${escapeHtml(props.postal_code)}<br>`;
+    html += `人口: ${pop.toLocaleString()} 人<br>`;
+    html += `受講者数: ${students != null ? students.toLocaleString() + ' 人' : '未入力'}<br>`;
+    if (ratio != null) {
+      html += `<span class="ratio">受講率: ${Number(ratio).toFixed(2)} %</span>`;
+    } else {
+      html += '<span style="color:#999;">受講率: -</span>';
+    }
+  } else {
+    html += '地図上の地区にマウスを乗せてください';
+  }
+  this._div.innerHTML = html;
+};
+info.addTo(map);
+
+function getRatio(feature) {
+  const name = feature.properties.__name;
+  const d = dataMap[name];
+  if (!d || d.ratio_percent == null) return null;
+  return Number(d.ratio_percent);
+}
+function getColor(ratio) {
+  if (ratio == null) return "#e0e0e0";
+  if (maxVal === minVal) return COLOR_SCALE[3];
+  const r = (ratio - minVal) / (maxVal - minVal);
+  if (r >= 1.0) return COLOR_HIGH;
+  if (r < 0) return COLOR_SCALE[0];
+  const idx = Math.min(6, Math.floor(r * 7));
+  return COLOR_SCALE[idx];
+}
+function styleFeature(feature) {
+  return {
+    fillColor: getColor(getRatio(feature)),
+    weight: 1,
+    opacity: 1,
+    color: '#666',
+    fillOpacity: 0.75
+  };
+}
+function highlight(e) {
+  const layer = e.target;
+  layer.setStyle({ weight: 3, color:'#333', fillOpacity:0.9 });
+  layer.bringToFront();
+  info.update(layer.feature.properties);
+}
+function resetHighlight(e) {
+  geoLayer.resetStyle(e.target);
+  info.update();
+}
+function onEachFeature(feature, layer) {
+  const name = feature.properties.__name;
+  const d = dataMap[name];
+  const ratio = d?.ratio_percent;
+  const tip = ratio != null ? `${name} (${Number(ratio).toFixed(2)}%)` : name;
+  layer.bindTooltip(tip, { sticky: true });
+  layer.on({
+    mouseover: highlight,
+    mouseout: resetHighlight,
+    click: () => zoomTo(name)
+  });
+}
+
+function drawGeoJSON(data) {
+  data.features.forEach(f => {
+    const p = f.properties || {};
+    f.properties.__name = p.__name || p.district_name || p.S_NAME || p.name || "(無名)";
+    const d = dataMap[f.properties.__name];
+    if (d && d.population != null && d.population !== '') {
+      f.properties.population = Number(d.population);
+    }
+  });
+  if (geoLayer) map.removeLayer(geoLayer);
+  geoData = data;
+  recomputeRange();
+  geoLayer = L.geoJSON(data, {
+    style: styleFeature,
+    onEachFeature: onEachFeature
+  }).addTo(map);
+  try { map.fitBounds(geoLayer.getBounds(), { padding:[20,20] }); } catch(e) {}
+  renderList(); renderSummary(); updateLegend();
+}
+
+function recomputeRange() {
+  if (!geoData) { minVal = 0; maxVal = 100; return; }
+  const ratios = geoData.features.map(getRatio).filter(r => r != null);
+  if (ratios.length === 0) { minVal = 0; maxVal = 100; return; }
+  minVal = Math.min(...ratios);
+  maxVal = Math.max(...ratios);
+  if (minVal === maxVal) maxVal = minVal + 0.01;
+}
+
+function renderList() {
+  if (!geoData) return;
+  const q = (document.getElementById('searchBox').value || '').trim();
+  const list = document.getElementById('list');
+  // 受講率の高い順にソート
+  const items = geoData.features.slice().sort((a,b) => {
+    const ra = getRatio(a); const rb = getRatio(b);
+    if (ra == null && rb == null) return a.properties.__name.localeCompare(b.properties.__name, 'ja');
+    if (ra == null) return 1;
+    if (rb == null) return -1;
+    return rb - ra;
+  });
+  let html = '';
+  items.forEach(ft => {
+    const name = ft.properties.__name;
+    if (q && name.indexOf(q) === -1) return;
+    const r = getRatio(ft);
+    const rTxt = r != null ? `${Number(r).toFixed(2)}%` : '-';
+    html += `
+      <div class="list-item" onclick="zoomTo('${escapeJs(name)}')" title="${escapeHtml(name)}">
+        <span class="name">${escapeHtml(name)}<br><small style="color:#7f8c8d;">${escapeHtml(ft.properties.city_name||'')}${ft.properties.postal_code ? ' / '+escapeHtml(ft.properties.postal_code) : ''}</small></span>
+        <span class="ratio">${rTxt}</span>
+      </div>`;
+  });
+  document.getElementById('list').innerHTML = html || '<div style="padding:8px 16px;color:#999;font-size:12px;">該当なし</div>';
+}
+
+function renderSummary() {
+  const el = document.getElementById('summary');
+  if (!summary) {
+    // データがなければGeoJSONから簡易表示
+    if (!geoData) { el.innerHTML = ''; return; }
+    const byCity = {};
+    geoData.features.forEach(ft => {
+      const c = ft.properties.city_name || '不明';
+      const pop = Number(ft.properties.population || 0);
+      if (!byCity[c]) byCity[c] = { pop:0, students:0 };
+      byCity[c].pop += pop;
+      const d = dataMap[ft.properties.__name];
+      if (d?.students != null) byCity[c].students += Number(d.students);
+    });
+    let html = '';
+    let totalPop = 0, totalStu = 0;
+    Object.entries(byCity).forEach(([c,s]) => {
+      const r = s.pop > 0 ? (s.students/s.pop*100).toFixed(2) : '-';
+      html += `<div class="summary-row"><b>${escapeHtml(c)}</b><span>${s.students.toLocaleString()} / ${s.pop.toLocaleString()} 人</span><span class="v">${r}%</span></div>`;
+      totalPop += s.pop; totalStu += s.students;
+    });
+    const tr = totalPop > 0 ? (totalStu/totalPop*100).toFixed(2) : '-';
+    html += `<div class="summary-row" style="border-top:1px solid #e2e6eb;padding-top:6px;margin-top:4px;"><b>全体</b><span>${totalStu.toLocaleString()} / ${totalPop.toLocaleString()} 人</span><span class="v">${tr}%</span></div>`;
+    el.innerHTML = html;
+    return;
+  }
+  // heatmap-data.json の summary を使う
+  let html = '';
+  if (summary.by_city) {
+    Object.entries(summary.by_city).forEach(([c, s]) => {
+      const r = s.ratio_percent != null ? Number(s.ratio_percent).toFixed(2) : '-';
+      html += `<div class="summary-row"><b>${escapeHtml(c)}</b><span>${(s.students||0).toLocaleString()} / ${(s.population||0).toLocaleString()} 人</span><span class="v">${r}%</span></div>`;
+    });
+  }
+  const tr = summary.total_ratio_percent != null ? Number(summary.total_ratio_percent).toFixed(2) : '-';
+  html += `<div class="summary-row" style="border-top:1px solid #e2e6eb;padding-top:6px;margin-top:4px;"><b>全体</b><span>${(summary.total_students||0).toLocaleString()} / ${(summary.total_population||0).toLocaleString()} 人</span><span class="v">${tr}%</span></div>`;
+  el.innerHTML = html;
+}
+
+function zoomTo(name) {
+  if (!geoLayer) return;
+  geoLayer.eachLayer(layer => {
+    if (layer.feature.properties.__name === name) {
+      map.fitBounds(layer.getBounds(), { maxZoom: 14 });
+      layer.openTooltip();
+    }
+  });
+}
+
+function setStatus(msg) { document.getElementById('statusBar').textContent = msg; }
+function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function escapeJs(s) { return String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'"); }
+
+// 初期化: GeoJSON と heatmap-data.json を並行取得
+Promise.all([
+  fetch(GEOJSON_URL).then(r => r.json()),
+  fetch(DATA_URL).then(r => r.ok ? r.json() : null).catch(() => null)
+]).then(([geo, data]) => {
+  if (data) {
+    summary = data.summary || null;
+    if (Array.isArray(data.districts)) {
+      data.districts.forEach(d => {
+        dataMap[d.name] = d;
+        // GeoJSONに人口情報がない場合に備えて補完
+      });
+    }
+    if (data.updated_display) {
+      document.getElementById('updatedAt').textContent = `最終更新: ${data.updated_display}`;
+    } else if (data.updated_at) {
+      document.getElementById('updatedAt').textContent = `最終更新: ${data.updated_at}`;
+    }
+    setStatus(`データ反映済み (${Object.keys(dataMap).length} 地区)`);
+  } else {
+    setStatus('受講者数データ (heatmap-data.json) がまだ配置されていません');
+  }
+  drawGeoJSON(geo);
+}).catch(err => {
+  setStatus('読み込みエラー: ' + err.message);
+});
+</script>
+</body>
+</html>
